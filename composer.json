@@ -1,4 +1,8 @@
 {
+    "name": "frankperez87/pma-fulfillment",
+    "description": "Allows you to connect easily to PMA and send items to ship.",
+    "license": "MIT",
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "PMA\\": "src/PMA"
