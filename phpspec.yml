@@ -1,0 +1,4 @@
+suites:
+  pma_suite:
+    namespace: PMA
+    src_path: src
