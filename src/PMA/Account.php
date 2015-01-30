@@ -53,4 +53,21 @@ class Account
     {
         return preg_match('/^([0-9]{1,3})$/', $client_number);
     }
+
+    public function setUser($username)
+    {
+        $this->guardAgainstInvalidUserName($username);
+        $this->user = $username;
+    }
+
+    private function guardAgainstInvalidUserName($username)
+    {
+        if ($this->isNotAValidUser($username))
+            throw new InvalidArgumentException('Invalid username provided.');
+    }
+
+    private function isNotAValidUser($username)
+    {
+        return strlen($username) > 20;
+    }
 }

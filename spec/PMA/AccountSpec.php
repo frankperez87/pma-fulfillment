@@ -2,6 +2,7 @@
 
 namespace spec\PMA;
 
+use InvalidArgumentException;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -43,5 +44,17 @@ class AccountSpec extends ObjectBehavior
     function it_can_retrieve_a_password()
     {
         $this->getPassword()->shouldReturn($this->password);
+    }
+
+    function it_can_set_a_username()
+    {
+        $this->setUser('ABC');
+        $this->getUser()->shouldReturn('ABC');
+    }
+
+    function it_validates_the_username()
+    {
+        $this->shouldThrow(new InvalidArgumentException('Invalid username provided.'))
+            ->during('setUser', ['aaaaaaaaaaaaaaaaaaaaa']);
     }
 }
