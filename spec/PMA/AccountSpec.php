@@ -57,4 +57,16 @@ class AccountSpec extends ObjectBehavior
         $this->shouldThrow(new InvalidArgumentException('Invalid username provided.'))
             ->during('setUser', ['aaaaaaaaaaaaaaaaaaaaa']);
     }
+
+    function it_can_set_a_password()
+    {
+        $this->setPassword('aaa');
+        $this->getPassword()->shouldReturn('aaa');
+    }
+
+    function it_validates_the_password()
+    {
+        $this->shouldThrow(new InvalidArgumentException('Invalid password provided.'))
+             ->during('setPassword', ['aaaaaaaaaaa']);
+    }
 }

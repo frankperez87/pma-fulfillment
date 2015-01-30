@@ -70,4 +70,21 @@ class Account
     {
         return strlen($username) > 20;
     }
+
+    public function setPassword($password)
+    {
+        $this->guardAgainstInvalidPassword($password);
+        $this->password = $password;
+    }
+
+    private function guardAgainstInvalidPassword($password)
+    {
+        if ($this->isNotAValidPassword($password))
+            throw new InvalidArgumentException('Invalid password provided.');
+    }
+
+    private function isNotAValidPassword($password)
+    {
+        return strlen($password) > 10;
+    }
 }
