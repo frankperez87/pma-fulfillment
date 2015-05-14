@@ -45,6 +45,7 @@ try {
 
     // Instantiate Shipping Class
     $shipping = new ShippingAddress();
+    //$shipping->setAttn('Test'); Optional
     $shipping->setFirstName('Frank');
     $shipping->setLastName('Test'); // Optional
     $shipping->setAddressOne('123 Main Street');
