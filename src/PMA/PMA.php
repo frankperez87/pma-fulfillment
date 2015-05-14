@@ -32,6 +32,7 @@ class PMA
             'transno' => $this->order->getTransactionNumber(),
             'email' => $this->order->getEmail(),
             'orderdate' => $this->order->getOrderDate(),
+            'attn' => $this->order->getShippingAddress()->getAttn(),
             'sfirstname' => $this->order->getShippingAddress()->getFirstName(),
             'slastname' => $this->order->getShippingAddress()->getLastName(),
             'sadd1' => $this->order->getShippingAddress()->getAddressOne(),

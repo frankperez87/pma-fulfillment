@@ -6,6 +6,12 @@ use InvalidArgumentException;
 
 trait Validator
 {
+    private function guardAgainstInvalidAttn($attn)
+    {
+        if (strlen($attn) > 35)
+            throw new InvalidArgumentException('ATTN is longer then the allowed length of 35.');
+    }
+
     private function guardAgainstInvalidFirstName($first_name)
     {
         if (strlen($first_name) > 35)

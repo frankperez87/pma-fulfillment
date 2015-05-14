@@ -13,6 +13,7 @@ class ShippingAddress
     protected $phone_number;
     protected $address_type;
     protected $ship_method;
+    private $attn;
 
     public function setPhoneNumber($phone_number)
     {
@@ -44,5 +45,16 @@ class ShippingAddress
     public function getShipMethod()
     {
         return $this->ship_method;
+    }
+
+    public function setAttn($attn)
+    {
+        $this->guardAgainstInvalidAttn($attn);
+        $this->attn = $attn;
+    }
+
+    public function getAttn()
+    {
+        return $this->attn;
     }
 }

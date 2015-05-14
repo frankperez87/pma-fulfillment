@@ -13,6 +13,18 @@ class ShippingAddressSpec extends ObjectBehavior
         $this->shouldHaveType('PMA\ShippingAddress');
     }
 
+    function it_allows_you_to_set_attn()
+    {
+        $this->setAttn('Name');
+        $this->getAttn()->shouldReturn('Name');
+    }
+
+    function it_validates_attn()
+    {
+        $this->shouldThrow(new InvalidArgumentException('ATTN is longer then the allowed length of 35.'))
+             ->during('setAttn', ['This is a test This is a test This is a test This is a test']);
+    }
+
     function it_allows_you_to_set_a_first_name()
     {
         $this->setFirstName('First Name');
