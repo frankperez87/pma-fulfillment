@@ -107,6 +107,9 @@ class BillingAddressSpec extends ObjectBehavior
         $this->isValidZip('11111-1111')->shouldReturn(1);
         $this->isValidZip('1111 111')->shouldReturn(1);
         $this->isValidZip('111 111')->shouldReturn(1);
+        $this->isValidZip('A111 1B1')->shouldReturn(1);
+        $this->isValidZip('A1B A2B')->shouldReturn(1);
+        $this->isValidZip('A1BA2B')->shouldReturn(0);
     }
 
     function it_allows_you_to_set_a_country()
