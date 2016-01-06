@@ -186,7 +186,7 @@ trait Validator
 
     public function isValidZip($zip)
     {
-        return preg_match('/^(\d{5}-\d{4}\b|\d{5,6}\b|\d{3,4}\s\d{3}\b)$/', $zip);
+        return preg_match('/^(\d{5}-\d{4}\b|\d{5,6}\b|\d{3,4}\s\d{3}\b|\w{3,4}\s\w{3})$/', $zip);
     }
 
     private function guardAgainstInvalidCountry($country)
